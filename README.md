@@ -1,17 +1,17 @@
-# GMB-update-pipeline
+# HuGGeMs-update-pipeline
 
-**A pipeline to update the Human Gut Microbial Gene Biobank (GMB)**
+**A pipeline to update the Human Gut Microbial Genetic Markers (HuGGeMs) database**
 
 ---
 
 ## Overview
 
-`GMB-update-pipeline` is a collection of scripts and workflows designed to update the Human Gut Microbial Gene Biobank (GMB). The pipeline has two main parts:
+`HuGGeMs-update-pipeline` is a collection of scripts and workflows designed to update the Human Gut Microbial Genetic Markers (HuGGeMs) database. The pipeline has two main parts:
 
-1. **Presence detection (Part I)** — determine whether a provided genome/species is already represented in the GMB dataset, using genome distance comparisons (dRep).
-2. **Marker-gene selection & update (Part II)** — predict genes from input genomes, annotate them (UniRef90/50), identify core genes and select marker genes to update the GMB dataset.
+1. **Presence detection (Part I)** — determine whether a provided genome/species is already represented in the HuGGeMs dataset, using genome distance comparisons (dRep).
+2. **Marker-gene selection & update (Part II)** — predict genes from input genomes, annotate them (UniRef90/50), identify core genes and select marker genes to update the HuGGeMs dataset.
 
-Each part contains one or more scripts. Part I contains a script that computes genome distances against the GMB representative cluster genomes using `dRep`. Part II is a higher-level workflow assembled from multiple scripts (11 small components) handling gene prediction, annotation, core gene identification and marker-gene selection.
+Each part contains one or more scripts. Part I contains a script that computes genome distances against the HuGGeMs representative cluster genomes using `dRep`. Part II is a higher-level workflow assembled from multiple scripts (11 small components) handling gene prediction, annotation, core gene identification and marker-gene selection.
 
 ---
 
@@ -36,7 +36,7 @@ Each part contains one or more scripts. Part I contains a script that computes g
 ## Repository Structure
 
 ```
-GMB-update-pipeline/
+HuGGeMs-update-pipeline/
 ├── part1_presence_detection/        # scripts and helpers for Part I (dRep-based)
 ├── part2_marker_selection/          # main integrated workflow + component scripts (11 scripts)
 ├── docs/                            # documentation, usage examples
@@ -51,9 +51,9 @@ GMB-update-pipeline/
 
 You will need the following datasets (place paths or download instructions in `docs/` or an `examples/` folder):
 
-* **GMB representative clusters (11,167 genomes)** — used by Part I to decide whether a query genome/species is already included. (Provide download path or link in `docs/`.)
+* **HuGGeMs representative clusters (11,167 genomes)** — used by Part I to decide whether a query genome/species is already included. (Provide download path or link in `docs/`.)
 * **UniRef90 and UniRef50 databases** — used to annotate predicted proteins in Part II.
-* **GMB dataset (marker profiles / reference)** — used to profile species composition and relative abundance of metagenomes and to update the GMB marker set.
+* **HuGGeMs dataset (marker profiles / reference)** — used to profile species composition and relative abundance of metagenomes and to update the HuGGeMs marker set.
 
 > **Note:** Replace the placeholder `xxx` with the real download URLs or local paths in `docs/DATASETS.md`.
 
@@ -109,8 +109,8 @@ cd GMB-update-pipeline
 3. (Optional) Create the recommended conda environment for Part II:
 
 ```bash
-conda env create -f envs/gmb-update.yml   # if provided
-conda activate gmb-update
+conda env create -f envs/HuGGeMs-update.yml   # if provided
+conda activate HuGGeMs-update
 ```
 
 ---
@@ -119,7 +119,7 @@ conda activate gmb-update
 
 ### Part I — Presence detection
 
-This part checks whether provided genomes or species are already represented in GMB.
+This part checks whether provided genomes or species are already represented in HuGGeMs.
 
 **Example:**
 
@@ -138,7 +138,7 @@ python part1_presence_detection/check_presence.py \
 
 ### Part II — Marker-gene selection & update
 
-This part performs gene prediction, annotation, core-gene detection and marker selection to update the GMB marker set.
+This part performs gene prediction, annotation, core-gene detection and marker selection to update the HuGGeMs marker set.
 
 **High-level example (integrated workflow):**
 
