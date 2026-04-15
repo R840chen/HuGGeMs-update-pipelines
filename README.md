@@ -37,23 +37,29 @@ Each part contains one or more scripts. Part I contains a script that computes g
 
 ```
 HuGGeMs-update-pipeline/
-├── part1_presence_detection/        # scripts and helpers for Part I (dRep-based)
-├── part2_marker_selection/          # main integrated workflow + component scripts (11 scripts)
-├── docs/                            # documentation, usage examples
-├── envs/                            # optional conda environment YAML files
-├── examples/                        # example inputs and expected outputs
-└── README.md                        # this file
+├── part1_presence_detection/        # Part I: presence detection scripts (dRep-based)
+│   └── drep_pipeline.py
+├── part2_marker_selection/           # Part II: marker-gene selection workflow
+│   ├── part2_run_pipeline.sh         # integrated workflow
+│   └── components/                   # standalone component scripts
+└── README.md
 ```
 
 ---
 
 ## Datasets Required
 
-You will need the following datasets (place paths or download instructions in `docs/` or an `examples/` folder):
+You will need the following datasets:
 
-* **HuGGeMs representative clusters (11,167 genomes)** — used by Part I to decide whether a query genome/species is already included. (Provide download path or link in `docs/`.)
-* **UniRef90 and UniRef50 databases** — used to annotate predicted proteins in Part II.
-* **HuGGeMs dataset (marker profiles / reference)** — used to profile species composition and relative abundance of metagenomes and to update the HuGGeMs marker set.
+1. **HuGGeMs representative clusters (11,167 genomes)**
+   - Used by Part I for genome distance comparisons
+   - Download: [HuGGeMs Data Repository](https://...)
+2. **UniRef90 and UniRef50 databases**
+   - Used by Part II for protein annotation
+   - Download: [UniProt Reference Clusters](https://www.uniprot.org/uniref/)
+3. **HuGGeMs dataset (marker profiles / reference)**
+   - Used for metagenome profiling and marker set updates
+   - Download: [HuGGeMs Data Repository](https://...)
 
 > **Note:** Replace the placeholder `xxx` with the real download URLs or local paths in `docs/DATASETS.md`.
 
@@ -100,7 +106,7 @@ conda activate HuGGeMs-update
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/<your-org>/HuGGeMs-update-pipeline.git
+git clone https://github.com/R840chen/HuGGeMs-update-pipeline.git
 cd HuGGeMs-update-pipeline
 ```
 
@@ -168,22 +174,17 @@ bash part2_marker_selection/part2_run_pipeline.sh \
 
 ---
 
-## Contributing
-
-Contributions are welcome. Please open an issue or submit a pull request. If you are adding features or changing behavior, update documentation in `docs/` and include tests/examples in `examples/`.
-
----
-
 ## License
 
 Specify your license here (e.g., MIT, GPL-3.0). Add a `LICENSE` file at the repository root.
 
 ---
 
-## Contact
+## CONTACT
 
-If you have questions, open an issue or contact the maintainer: `chenc` (or add an email/GitHub handle).
+For questions, bug reports, or collaboration inquiries:
+- **GitHub Issues**: [Open an issue](https://github.com/R840chen/HuGGeMs-update-pipelines/issues)
+- **Maintainer**: R840chen
 
----
 
 *Last updated: replace with date when you publish this README.*
