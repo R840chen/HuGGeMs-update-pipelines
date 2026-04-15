@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-merged_drep_pipeline.py
+drep_pipeline.py
 
 This script performs the following steps:
  1. Copy new genome files from --new-dir into --input-dir (convert extensions to .fna), avoiding name collisions.
@@ -9,7 +9,7 @@ This script performs the following steps:
  4. (Optional) After dRep completes, parse dRep output data_tables/Cdb.csv (or CdbF.csv) to find "unique" primary_clusters that are represented only by genomes from the new set, or clusters with a single member. Copy those genome files to --unique-dest and optionally write their paths to --unique-list.
 
 Usage example:
-  python merged_drep_pipeline.py \
+  python drep_pipeline.py \
     --input-dir /path/to/main/genomes \
     --new-dir /path/to/new/genomes \
     --output-dir /path/to/drep-output \
