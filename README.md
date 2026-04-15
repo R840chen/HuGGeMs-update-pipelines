@@ -1,4 +1,4 @@
-# HuGGeMs-update-pipeline
+<img width="97" height="23" alt="image" src="https://github.com/user-attachments/assets/b71dbc5f-1d37-4167-ac40-6a2abd38585b" /># HuGGeMs-update-pipeline
 
 **A pipeline to update the Human Gut Microbial Genetic Markers (HuGGeMs) database**
 
@@ -87,8 +87,8 @@ conda install -c bioconda mash mummer fastani centrifuge -y
 Suggested install command:
 
 ```bash
-conda create -n gmb-update -c bioconda prokka diamond mmseqs2 art bowtie2 samtools bamutil biopython -y
-conda activate gmb-update
+conda create -n HuGGeMs-update -c bioconda prokka diamond mmseqs2 art bowtie2 samtools bamutil gls biopython -y
+conda activate HuGGeMs-update
 ```
 
 > **Important:** The integrated script for Part II assumes all required tools are available within a single conda environment. If you cannot install all tools in one environment, run the component scripts separately in suitable environments as documented in `docs/COMPONENT_USAGE.md`.
@@ -100,8 +100,8 @@ conda activate gmb-update
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/<your-org>/GMB-update-pipeline.git
-cd GMB-update-pipeline
+git clone https://github.com/<your-org>/HuGGeMs-update-pipeline.git
+cd HuGGeMs-update-pipeline
 ```
 
 2. Prepare datasets (see `docs/DATASETS.md`) and ensure required software is installed and on your `PATH`.
@@ -127,7 +127,7 @@ This part checks whether provided genomes or species are already represented in 
 # run the presence-detection script (example)
 python part1_presence_detection/check_presence.py \
   --input-genomes /path/to/query_genomes/ \
-  --gmb-rep-genomes /path/to/11167_representatives.txt \
+  --HuGGeMs-rep-genomes /path/to/11167_representatives.txt \
   --out results/presence_report.tsv
 ```
 
@@ -144,11 +144,11 @@ This part performs gene prediction, annotation, core-gene detection and marker s
 
 ```bash
 # run the integrated Part II workflow (example)
-python part2_marker_selection/run_pipeline.py \
-  --input-genomes /path/to/genomes/ \
+bash part2_marker_selection/part2_run_pipeline.sh \
+  --prokka_input /path/to/genomes/ \
   --uniref90 /path/to/uniref90.fasta \
   --uniref50 /path/to/uniref50.fasta \
-  --gmb-reference /path/to/gmb_reference/ \
+  --HuGGeMs-reference /path/to/HuGGeMs_reference/ \
   --outdir results/part2_output
 ```
 
