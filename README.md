@@ -125,10 +125,11 @@ This part checks whether provided genomes or species are already represented in 
 
 ```bash
 # run the presence-detection script (example)
-python part1_presence_detection/check_presence.py \
-  --input-genomes /path/to/query_genomes/ \
-  --HuGGeMs-rep-genomes /path/to/11167_representatives.txt \
-  --out results/presence_report.tsv
+python part1_presence_detection/drep_pipeline.py \
+  --new-dir /path/to/query_genomes/ \
+  --input-dir /path/to/11167_representatives.txt \
+  --output-dir /path/to/dRep_results/ \
+  --extract-unique
 ```
 
 **What it does:**
