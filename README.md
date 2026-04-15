@@ -1,4 +1,4 @@
-<img width="97" height="23" alt="image" src="https://github.com/user-attachments/assets/b71dbc5f-1d37-4167-ac40-6a2abd38585b" /># HuGGeMs-update-pipeline
+# HuGGeMs-update-pipeline
 
 **A pipeline to update the Human Gut Microbial Genetic Markers (HuGGeMs) database**
 
